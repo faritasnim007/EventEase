@@ -1,18 +1,25 @@
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
-const connectDB = require('./config/db');
+
 
 const app = express();
-connectDB();
-app.use('/uploads', express.static('uploads'));
+
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(()=>console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection failed', err));
 
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/events', require('./routes/events'));
+app.get('/', (req, res) => {
+  res.send('Welcome to EventEase backend API');
+});
 
+
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/homepage', require('./routes/homepage'));
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

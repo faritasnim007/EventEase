@@ -1,30 +1,23 @@
+// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import Signup from './pages/Signup';
-import Signin from './pages/Signin';
-import Home from './pages/Home';
-import EventList from './components/EventList';
-import EventForm from './components/EventForm';
-import Dashboard from './pages/Dashboard';
-import { AuthProvider } from './context/AuthContext';
+import HomePage from './components/HomePage';
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<EventList />} />
-          <Route path="/create-event" element={<EventForm />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/edit-event/:id" element={<EventForm isEdit={true} />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        {/* Redirect unknown paths to home */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 }
+
 export default App;

@@ -1,0 +1,61 @@
+.homepage-container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 20px 0 60px 0;
+}
+
+.welcome-msg {
+  text-align: center;
+  font-size: 2.1rem;
+  color: #675a42;
+  margin-bottom: 34px;
+  font-family: 'Georgia', serif;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+  margin-bottom: 38px;
+}
+
+.homepage-btn {
+  background-color: #bfa06b;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 42px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background 0.18s;
+}
+.homepage-btn:hover {
+  background-color: #a48758;
+}
+
+.explore-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #6e5f36;
+  margin-top: 17px;
+  margin-bottom: 17px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.photos-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.event-photo {
+  width: 320px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(148,118,61,0.11);
+  background-color: #eee9dd;
+}
